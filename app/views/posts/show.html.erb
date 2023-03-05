@@ -1,10 +1,10 @@
 <h1><%= @the_post.body %></h1>
 
-<h2><td>Asked by <%= @the_post.user.first_name %> <%= @the_post.user.last_name %></td> <td><%= time_ago_in_words(@the_post.created_at) %> ago</td></h2>
+<h2><td>Posted by <%= @the_post.user.first_name %> <%= @the_post.user.last_name %></td> <td><%= time_ago_in_words(@the_post.created_at) %> ago</td></h2>
 
 <h2>Topic: <%= @the_post.topic.body %></h2>
 
-<div><a href="/posts">Go back</a></div>
+<div><a href="/topics/<%= @the_post.topic.id%>">Go back</a></div>
 
 <hr>
 
@@ -12,17 +12,17 @@
 <% if @the_post.user.id == session.fetch(:user_id) %>
   <dt>Edit post</dt>
   <div>
-  <form action="/modify_post/<%= @the_post.id %>" method="post">
+  <form action="/modify_post/<%= @the_post.topic.id %>" method="post">
     <div>
       <label for="edit_body_box"></label>
-      <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.topic_id %>" placeholder = "Update your discussion topic..."><%= @the_post.body %></textarea>
+      <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.topic.id %>" placeholder = "Update your discussion topic..."><%= @the_post.body %></textarea>
     </div>
     <button>Update post</button>
   </form>
   </div>
 
   <div>
-    <a href="/delete_post/<%= @the_post.id %>">Delete this post</a>
+    <a href="/delete_post/<%= @the_post.topic.id %>">Delete this post</a>
   </div>
 <% else %>
 <% end %>

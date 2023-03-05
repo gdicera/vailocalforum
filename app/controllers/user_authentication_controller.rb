@@ -44,7 +44,7 @@ class UserAuthenticationController < ApplicationController
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
-    @user.profile_picture = params.fetch("query_profile_picture")
+    #@user.profile_picture = params.fetch(:profile_picture)
     @user.school_name = params.fetch("query_school_name")
 
     save_status = @user.save
@@ -69,7 +69,7 @@ class UserAuthenticationController < ApplicationController
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
-    @user.profile_picture = params.fetch("query_profile_picture")
+    #@user.profile_picture = params.fetch(:profile_picture)
     @user.school_name = params.fetch("query_school_name")
     
     if @user.valid?

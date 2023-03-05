@@ -21,5 +21,5 @@ class User < ApplicationRecord
   has_many(:topics, { :class_name => "Topic", :foreign_key => "user_id" })
   has_many(:comments, { :class_name => "Comment", :foreign_key => "commenter_id", :dependent => :destroy })
   
-  mount_uploader :profile_picture, ImageUploader
+  #mount_uploader :profile_picture, ImageUploader
 end

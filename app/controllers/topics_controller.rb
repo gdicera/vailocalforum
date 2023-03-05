@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
 
     @the_topic = Topic.where({ :id => the_id }).at(0)
 
-    @list_of_posts = @topic.posts
+    @list_of_posts = @the_topic.posts
 
     render({ :template => "topics/show.html.erb" })
   end

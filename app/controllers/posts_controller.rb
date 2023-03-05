@@ -25,9 +25,9 @@ class PostsController < ApplicationController
 
     if the_post.valid?
       the_post.save
-      redirect_to("/posts/#{the_post.id}", { :notice => "Post created successfully." })
+      redirect_to("/topics/#{the_post.topic_id}", { :notice => "Post created successfully." })
     else
-      redirect_to("/posts", { :alert => the_post.errors.full_messages.to_sentence })
+      redirect_to("/topics/#{the_post.topic_id}", { :alert => the_post.errors.full_messages.to_sentence })
     end
   end
 
@@ -41,9 +41,9 @@ class PostsController < ApplicationController
 
     if the_post.valid?
       the_post.save
-      redirect_to("/posts/#{the_post.id}", { :notice => "Post updated successfully."} )
+      redirect_to("/topics/#{the_post.topic_id}", { :notice => "Post updated successfully."} )
     else
-      redirect_to("/posts/#{the_post.id}", { :alert => the_post.errors.full_messages.to_sentence })
+      redirect_to("/topics/#{the_post.topic_id}", { :alert => the_post.errors.full_messages.to_sentence })
     end
   end
 

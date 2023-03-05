@@ -9,4 +9,7 @@
 #  user_id    :integer
 #
 class Topic < ApplicationRecord
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
+  has_many(:posts, { :class_name => "Post", :foreign_key => "topic_id", :dependent => :destroy })
+
 end

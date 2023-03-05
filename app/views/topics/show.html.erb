@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Topic #<%= @the_topic.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/topics">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_topic/<%= @the_topic.id %>">
+          Delete topic
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_topic.user_id %>
+      </dd>
+
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_topic.body %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_topic.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_topic.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit topic
+    </h2>
+
+    <form action="/modify_topic/<%= @the_topic.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_topic.user_id %>">
+      </div>
+
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <textarea id="body_box" name="query_body"><%= @the_topic.body %></textarea>
+      </div>
+
+      <button>
+        Update topic
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

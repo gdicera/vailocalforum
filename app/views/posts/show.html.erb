@@ -1,101 +1,28 @@
-<div>
-  <div>
-    <h1>
-      Post #<%= @the_post.id %> details
-    </h1>
+<h1><%= @the_post.body %></h1>
 
+<h2><td>Asked by <%= @the_post.user.first_name %> <%= @the_post.user.last_name %></td> <td><%= time_ago_in_words(@the_post.created_at) %> ago</td></h2>
+
+<h2>Topic: <%= @the_post.topic.body %></h2>
+
+<div><a href="/posts">Go back</a></div>
+
+<hr>
+
+
+<% if @the_post.user.id == session.fetch(:user_id) %>
+  <dt>Edit post</dt>
+  <div>
+  <form action="/modify_post/<%= @the_post.id %>" method="post">
     <div>
-      <div>
-        <a href="/posts">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_post/<%= @the_post.id %>">
-          Delete post
-        </a>
-      </div>
+      <label for="edit_body_box"></label>
+      <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.topic_id %>" placeholder = "Update your discussion topic..."><%= @the_post.body %></textarea>
     </div>
-
-    <dl>
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @the_post.user_id %>
-      </dd>
-
-      <dt>
-        Topic
-      </dt>
-      <dd>
-        <%= @the_post.topic_id %>
-      </dd>
-
-      <dt>
-        Body
-      </dt>
-      <dd>
-        <%= @the_post.body %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_post.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_post.updated_at) %> ago
-      </dd>
-    </dl>
+    <button>Update post</button>
+  </form>
   </div>
-</div>
 
-<hr>
-
-
-<div>
   <div>
-    <h2>
-      Edit post
-    </h2>
-
-    <form action="/modify_post/<%= @the_post.id %>"  method="post" >
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_post.user_id %>">
-      </div>
-
-      <div>
-        <label for="topic_id_box">
-          Topic
-        </label>
-
-        <input type="text" id="topic_id_box" name="query_topic_id" value="<%= @the_post.topic_id %>">
-      </div>
-
-      <div>
-        <label for="body_box">
-          Body
-        </label>
-
-        <textarea id="body_box" name="query_body"><%= @the_post.body %></textarea>
-      </div>
-
-      <button>
-        Update post
-      </button>
-    </form>
+    <a href="/delete_post/<%= @the_post.id %>">Delete this post</a>
   </div>
-</div>
-
-<hr>
+<% else %>
+<% end %>

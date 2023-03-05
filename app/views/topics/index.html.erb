@@ -17,7 +17,7 @@
 
       <% @list_of_topics.each do |a_topic| %>
       <tr>
-        <td><%= a_topic.user %></td>
+        <td><%= a_topic.body %></td>
         <td><%= a_topic.user.first_name %> <%= a_topic.user.last_name %></td>
         <td><a href="/topics/<%= a_topic.id %>">See posts on topic</a></td>
         <td><%= time_ago_in_words(a_topic.created_at) %> ago</td>

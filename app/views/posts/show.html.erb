@@ -42,10 +42,10 @@
 <% if @the_post.user.id == session.fetch(:user_id) %>
   <dt>Edit post</dt>
   <div>
-  <form action="/modify_post/<%= @the_post.topic.id %>" method="post">
+  <form action="/modify_post/<%= @the_post.id %>" method="post">
     <div>
       <label for="edit_body_box"></label>
-      <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.topic.id %>" placeholder = "Update your discussion topic..."><%= @the_post.body %></textarea>
+      <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.id %>" placeholder = "Update your discussion topic..."><%= @the_post.body %></textarea>
     </div>
     <button>Update post</button>
   </form>

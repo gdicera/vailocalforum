@@ -8,6 +8,36 @@
 
 <hr>
 
+<h2>Comments</h2>
+
+<table>
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+  </tr>
+
+  <% @the_post.comments.each do |comment| %>
+  <tr>
+    <td><%= comment.commenter.first_name %> <%= comment.commenter.last_name %></td>
+    <td><%= comment.body %></td>
+    <td><%= comment.created_at %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h3>Add a new comment</h3>
+
+<form action="/insert_comment">
+  <input id="browser_post_id" type="hidden" value="<%= @the_post.id %>" name="input_post_id">
+
+  <label for="browser_comment">Comment</label>
+  <textarea id="browser_comment" name="input_body" placeholder="Enter a comment..."></textarea>
+
+  <button>Add comment</button>
+</form>
+
+<hr>
 
 <% if @the_post.user.id == session.fetch(:user_id) %>
   <dt>Edit post</dt>
@@ -22,7 +52,7 @@
   </div>
 
   <div>
-    <a href="/delete_post/<%= @the_post.topic.id %>">Delete this post</a>
+    <a href="/delete_post/<%= @the_post.id %>">Delete this post</a>
   </div>
 <% else %>
 <% end %>

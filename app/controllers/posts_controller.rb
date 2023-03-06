@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     the_post = Post.where({ :id => the_id }).at(0)
 
     the_post.user_id = session.fetch(:user_id)
-    the_post.topic_id = params.fetch("query_topic_id")
+    #the_post.topic_id = params.fetch("query_topic_id")
     the_post.body = params.fetch("query_body")
 
     if the_post.valid?

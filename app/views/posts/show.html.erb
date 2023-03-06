@@ -8,7 +8,7 @@
 
 <h2>Comments</h2>
 
-<table>
+<table border = "1">
   <tr>
     <th>Commenter</th>
     <th>Comment</th>
@@ -26,14 +26,15 @@
 
 <h3>Add a new comment</h3>
 
-<form action="/insert_comment">
-  <input id="browser_post_id" type="hidden" value="<%= @the_post.id %>" name="input_post_id">
+<form action="/insert_comment" method = "post">
+  <input type = "hidden" id="comment_box" value="<%= @the_post.id %>" name="query_post_id">
 
   <label for="browser_comment">Comment</label>
-  <textarea id="browser_comment" name="input_body" placeholder="Enter a comment..."></textarea>
+  <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
 
   <button>Add comment</button>
 </form>
+
 
 <hr>
 

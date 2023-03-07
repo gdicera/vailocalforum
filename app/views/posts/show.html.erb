@@ -1,8 +1,8 @@
+<div><a href="/topics/<%= @the_post.topic.id%>">Go back</a></div>
+
 <h1><%= @the_post.body %></h1>
 
 <h2><td>Posted by <%= @the_post.user.first_name %> <%= @the_post.user.last_name %></td> <td><%= time_ago_in_words(@the_post.created_at) %> ago</td> in response to the topic: <%= @the_post.topic.body %></h2>
-
-<div><a href="/topics/<%= @the_post.topic.id%>">Go back</a></div>
 
 <hr>
 

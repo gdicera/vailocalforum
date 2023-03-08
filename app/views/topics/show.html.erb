@@ -1,31 +1,29 @@
-<div>
+<div class="v-font">
   <a href="/topics">Go back</a>
 </div>
 
-<h3 class = "text-center"><%= @the_topic.body %> </h3>
+<h3 class = "v-font text-center"><%= @the_topic.body %> </h3>
 
-<h5 class = "text-center"><td>Asked by <%= @the_topic.user.first_name %> <%= @the_topic.user.last_name %></td> <td><%= time_ago_in_words(@the_topic.created_at) %> ago</td></h5>
+<h5 class = "v-font text-center"><td>Asked by <%= @the_topic.user.first_name %> <%= @the_topic.user.last_name %></td> <td><%= time_ago_in_words(@the_topic.updated_at) %> ago</td></h5>
 
 <hr>
 
-<div class="table-info">
+<div class="v-font table-info">
   <div>
-    <table border="1" class="text-center table table-striped table-hover border">
+    <table border="1" class="v-font text-center table table-striped table-hover border">
       <tr class = "table-info">
-        <th>Answered by</th>
         <th>Post</th>
-        <th>Created</th>
-        <th>Updated</th>
-        <th>Details</th>
+        <th>Answered by</th>
+        <th>School name</th>
+        <th>Posted</th>
       </tr>
 
       <% @list_of_posts.each do |a_post| %>
       <tr>
+        <td><a href="/posts/<%= a_post.id %>"><%= a_post.body %></td>
         <td><%= a_post.user.first_name %> <%= a_post.user.last_name %></td>
-        <td><%= a_post.body %></td>
-        <td><%= time_ago_in_words(a_post.created_at) %> ago</td>
+        <td><%= a_post.user.school_name %></td>
         <td><%= time_ago_in_words(a_post.updated_at) %> ago</td>
-        <td><a href="/posts/<%= a_post.id %>">See post</a></td>
       </tr>
       <% end %>
     </table>
@@ -34,40 +32,40 @@
 
 <hr>
 
-<div class = "text-center">
-  <div>
-    <h3>Create a new post</h3>
-
+<div class = "v-font text-center">
     <form action="/insert_post" method = "post">
-      <div>
+      <div class = "v-font">
         <input type="hidden" id="topic_id_box" name="query_topic_id" value="<%= @the_topic.id %>">
 
         <label for="post_box"></label>
         <textarea id = "post_box" name = "query_body" placeholder = "Enter a new post ..."></textarea>
       </div>
 
-      <button class="v-button">Create new post</button>
+      <button class="v-button v-font">Create new post</button>
     </form>
-  </div>
 </div>
 
 
 <hr>
 
+
+<div class="text-center v-font">
 <% if @the_topic.user.id == session.fetch(:user_id) %>
-  <dt>Edit topic</dt>
-  <div>
+  <div class = "v-font">Edit topic</div>
   <form action="/modify_topic/<%= @the_topic.id %>" method="post">
-    <div>
+    <div class = "text-center v-font">
       <label for="edit_body_box"></label>
       <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_topic.id %>" placeholder = "Update your discussion topic..."><%= @the_topic.body %></textarea>
     </div>
-    <button>Update topic</button>
+    <button class = "v-text-center v-font">Update topic</button>
   </form>
   </div>
 
-  <div>
+<hr>
+
+  <div class = "text-center v-font">
     <a href="/delete_topic/<%= @the_topic.id %>">Delete this topic</a>
   </div>
 <% else %>
 <% end %>
+</div>

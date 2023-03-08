@@ -1,28 +1,28 @@
-<div><a href="/topics/<%= @the_post.topic.id%>">Go back</a></div>
+<div class="v-font"><a href="/topics/<%= @the_post.topic.id%>">Go back</a></div>
 
-<h3 class = "text-center"><%= @the_post.body %></h3>
+<h3 class = "v-font text-center"><%= @the_post.body %></h3>
 
-<h4 class = "text-center"><td>Posted by <%= @the_post.user.first_name %> <%= @the_post.user.last_name %></td> <td><%= time_ago_in_words(@the_post.created_at) %> ago</td> in response to the topic: <%= @the_post.topic.body %></h4>
+<h5 class = "v-font text-center"><td>Posted by <%= @the_post.user.first_name %> <%= @the_post.user.last_name %></td> <td><%= time_ago_in_words(@the_post.created_at) %> ago</td> in response to the topic: <%= @the_post.topic.body %></h5>
 
 <hr>
 
 
-<div class = "text-center">
+<div class = "v-font text-center">
   <div>
-    <table border="1" class="text-center table table-striped table-hover border">
+    <table border="1" class="v-font text-center table table-striped table-hover border">
       <tr>
-        <th>Commenter</th>
         <th>Comment</th>
+        <th>Commenter</th>
+        <th>School name</th>
         <th>Posted</th>
-        <th>View comment</th>
       </tr>
 
       <% @the_post.comments.each do |comment| %>
       <tr>
+        <td><a href="/comments/<%= comment.id %>"><%= comment.body %></td>
         <td><%= comment.commenter.first_name %> <%= comment.commenter.last_name %></td>
-        <td><%= comment.body %></td>
-        <td><%= time_ago_in_words(comment.created_at) %> ago </td>
-        <td><a href="/comments/<%= comment.id %>">See comment</a></td>
+        <td><%= comment.commenter.school_name %></td>
+        <td><%= time_ago_in_words(comment.updated_at) %> ago </td>
       </tr>
       <% end %>
     </table>
@@ -31,33 +31,33 @@
 
 <hr>
 
-<form action="/insert_comment" method = "post" class="text-center">
+<form action="/insert_comment" method = "post" class="v-font text-center">
   <input type = "hidden" id="comment_box" value="<%= @the_post.id %>" name="query_post_id">
 
-  <div>
+  <div class="v-font">
     <label for="browser_comment"></label>
     <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
   </div>
 
-  <button class = "v-button">Add a new comment</button>
+  <button class = "v-font v-button">Add a new comment</button>
 </form>
 
 <hr>
 
 <% if @the_post.user.id == session.fetch(:user_id) %>
-  <div>
-  <form action="/modify_post/<%= @the_post.id %>" method="post" class = "text-center">
-    <div>
+  <div class="v-font">
+  <form action="/modify_post/<%= @the_post.id %>" method="post" class = "v-font text-center">
+    <div class="v-font">
       <label for="edit_body_box"></label>
       <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.id %>"><%= @the_post.body %></textarea>
     </div>
-    <button class = "v-button">Update post</button>
+    <button class = "v-font v-button">Update post</button>
   </form>
   </div>
 
   <hr>
 
-  <div class = "text-center">
+  <div class = "v-font text-center">
     <a href="/delete_post/<%= @the_post.id %>">Delete this post</a>
   </div>
 <% else %>

@@ -2,7 +2,7 @@
 
 <h3 class = "text-center"><%= @the_comment.body %></h3>
 
-<h4 class = "text-center"><td>Posted by <%= @the_comment.commenter.first_name %> <%= @the_comment.commenter.last_name %></td> <td><%= time_ago_in_words(@the_comment.created_at) %> ago</td></h4>
+<h4 class = "text-center"><td>Posted by <%= @the_comment.commenter.first_name %> <%= @the_comment.commenter.last_name %></td> <td><%= time_ago_in_words(@the_comment.created_at) %> ago</td> in response to the post: <%= @the_comment.post.body %></h4>
 
 <hr>
 

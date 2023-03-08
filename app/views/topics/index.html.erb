@@ -1,26 +1,24 @@
 <div>
-  <div class="text-center"><h3> What topics do you want to explore? </h3></div>
+  <div class="text-center v-font"><h3> What topics do you want to explore? </h3></div>
 </div>
 
 <hr>
 
-<div class="text-center">
+<div class="text-center v-font">
   <div>
-    <table border="1" class="text-center table table-striped table-hover border">
+    <table border="1" class="v-font text-center table table-striped table-hover border">
       <tr class = "table-info">
         <th>Topic</th>
         <th>Asked by</th>
-        <th>View</th>
-        <th>Created</th>
-        <th>Updated</th>
+        <th>School name</th>
+        <th>Posted</th>
       </tr>
 
       <% @list_of_topics.each do |a_topic| %>
       <tr>
-        <td><%= a_topic.body %></td>
+        <td><a href="/topics/<%= a_topic.id %>"><%= a_topic.body %></td>
         <td><%= a_topic.user.first_name %> <%= a_topic.user.last_name %></td>
-        <td><a href="/topics/<%= a_topic.id %>">See posts on topic</a></td>
-        <td><%= time_ago_in_words(a_topic.created_at) %> ago</td>
+        <td><%= a_topic.user.school_name %></td>
         <td><%= time_ago_in_words(a_topic.updated_at) %> ago</td>
       </tr>
       <% end %>
@@ -30,7 +28,7 @@
 
 <hr>
 
-<div class="text-center">
+<div class="text-center v-font">
   <div>
     <h4>Create a new topic</h4>
 

@@ -1,68 +1,25 @@
-<div>
-  <div>
-    <h1>
-      List of all comments
-    </h1>
-  </div>
-</div>
+<div class="v-font text-center"><h3>List of all comments</h3></div>
 
 <hr>
-<div>
+
+<div class="v-font">
   <div>
-    <table border="1" class="text-center table table-hover border">
-      <tr class = "table-info">
-
-        <th>
-          Post
-        </th>
-
-        <th>
-          Body
-        </th>
-
-        <th>
-          Commenter
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
+    <table border="1" class="v-font text-center table table-hover border">
+      <tr class = "v-font text-center table-info">
+        <th>Post</th>
+        <th>Comment</th>
+        <th>Commenter</th>
+        <th>School name</th>
+        <th>Commented</th>
       </tr>
 
       <% @list_of_comments.each do |a_comment| %>
       <tr>
-
-        <td>
-          <%= a_comment.post.body %>
-        </td>
-
-        <td>
-          <%= a_comment.body %>
-        </td>
-
-        <td>
-          <%= a_comment.commenter.first_name %> <%= a_comment.commenter.last_name %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_comment.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_comment.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/comments/<%= a_comment.id %>">
-            Show details
-          </a>
-        </td>
+        <td><a href="/posts/<%= a_comment.post.id %>"><%= a_comment.post.body %></a></td>
+        <td><a href="/comments/<%= a_comment.id %>"><%= a_comment.body %></a></td>
+        <td><%= a_comment.commenter.first_name %> <%= a_comment.commenter.last_name %></td>
+        <td><%= a_comment.commenter.school_name %></td>
+        <td><%= time_ago_in_words(a_comment.updated_at) %> ago</td>
       </tr>
       <% end %>
     </table>

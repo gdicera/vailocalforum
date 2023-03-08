@@ -1,6 +1,6 @@
 <div>
   <div>
-    <h3 class = "text-center">
+    <h3 class = "text-center v-font">
       What posts do you want to explore?
     </h3>
   </div>
@@ -10,23 +10,21 @@
 
 <div>
   <div>
-    <table border="1" class="text-center table table-striped table-hover border">
+    <table border="1" class="v-font text-center table table-striped table-hover border">
       <tr>
         <th>Topic</th>
         <th>Post</th>
         <th>Asked by</th>
-        <th>View</th>
-        <th>Created at</th>
-        <th>Updated at</th>
+        <th>School name</th>
+        <th>Posted</th>
       </tr>
 
       <% @list_of_posts.each do |a_post| %>
       <tr>
-        <td><%= a_post.topic.body %></td>
-        <td><%= a_post.body %></td>
+        <td><a href="/topics/<%= a_post.topic.id %>"><%= a_post.topic.body %></td>
+        <td><a href="/posts/<%= a_post.id %>"><%= a_post.body %></td>
         <td><%= a_post.user.first_name%> <%= a_post.user.last_name%></td>
-        <td><a href="/posts/<%= a_post.id %>">See post</a></td>
-        <td><%= time_ago_in_words(a_post.created_at) %> ago</td>
+        <td><%= a_post.user.school_name%></td>
         <td><%= time_ago_in_words(a_post.updated_at) %> ago</td>
       </tr>
       <% end %>

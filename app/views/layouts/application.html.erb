@@ -20,12 +20,15 @@
 
     <link rel="stylesheet" href = "/stylesheets/application.css">
 
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+  </style>
 
   </head>
 
   <body>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="v-font navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">VaiLocal</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,12 +57,12 @@
   </nav>
 
     <% if notice.present? %>
-    <div style = "border: thin green solid; color: green">
+    <div style = "border: thin green solid; color: green" class="v-font">
       <%= notice %></div>
     <% end %>
 
     <% if alert.present? %>
-    <div style = "border: thin red solid; color: red"><%= alert %></div>
+    <div style = "border: thin red solid; color: red" class="v-font"><%= alert %></div>
     <% end %>
     
     <%= yield %>

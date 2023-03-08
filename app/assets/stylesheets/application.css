@@ -12,3 +12,39 @@
  *
  *= require_self
  */
+
+
+.v-button {
+  background-color: #4b006e;
+  padding: 3px;
+  color: white;
+  border-radius: 5px;
+}
+
+.v-button:hover {
+  background-color: #7e3c9c;
+  box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;
+  -webkit-box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;
+  -moz-box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;
+}
+
+.nav-elements {
+  background-color: #4b006e;
+  padding: 1px;
+  color: white;
+  border-radius: 2px;
+}
+
+.base-button {
+  padding: 10px;
+  color: white;
+  border-radius: 5px; 
+}
+
+.success-button {
+  background-color: #006e0f;
+}
+
+.danger-button {
+  background-color: #d71c1c;
+}

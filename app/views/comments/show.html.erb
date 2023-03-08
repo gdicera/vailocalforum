@@ -1,15 +1,14 @@
-<div><a href="/posts/<%= @the_comment.post.id %>">Go back</a></div>
+<div class="v-font"><a href="/posts/<%= @the_comment.post.id %>">Go back</a></div>
 
-<h3 class = "text-center"><%= @the_comment.body %></h3>
+<h3 class = "v-font text-center"><%= @the_comment.body %></h3>
 
-<h4 class = "text-center"><td>Posted by <%= @the_comment.commenter.first_name %> <%= @the_comment.commenter.last_name %></td> <td><%= time_ago_in_words(@the_comment.created_at) %> ago</td> in response to the post: <%= @the_comment.post.body %></h4>
+<h4 class = "v-font text-center"><td>Posted by <%= @the_comment.commenter.first_name %> <%= @the_comment.commenter.last_name %></td> <td><%= time_ago_in_words(@the_comment.created_at) %> ago</td> in response to the post: <%= @the_comment.post.body %></h4>
 
 <hr>
 
-
+<div class="v-font text-center">
 <% if @the_comment.commenter.id == session.fetch(:user_id) %>
-  <dt>Edit comment</dt>
-  <div>
+  <div class="v-font">
     <form action="/modify_comment/<%= @the_comment.id %>"  method="post" class="text-center">
       <div>
         <label for="comment_id_box"></label>
@@ -19,8 +18,11 @@
    </form>
   </div>
 
-  <div class="text-center">
+  <hr>
+
+  <div class="v-font text-center">
     <a href="/delete_comment/<%= @the_comment.id %>">Delete this comment</a>
   </div>
 <% else %>
 <% end %>
+</div>

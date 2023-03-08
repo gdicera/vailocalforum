@@ -6,6 +6,7 @@
 
 <hr>
 
+
 <div class = "text-center">
   <div>
     <table border="1" class="text-center table table-striped table-hover border">
@@ -13,6 +14,7 @@
         <th>Commenter</th>
         <th>Comment</th>
         <th>Posted</th>
+        <th>View comment</th>
       </tr>
 
       <% @the_post.comments.each do |comment| %>
@@ -20,6 +22,7 @@
         <td><%= comment.commenter.first_name %> <%= comment.commenter.last_name %></td>
         <td><%= comment.body %></td>
         <td><%= time_ago_in_words(comment.created_at) %> ago </td>
+        <td><a href="/comments/<%= comment.id %>">See comment</a></td>
       </tr>
       <% end %>
     </table>
@@ -28,33 +31,33 @@
 
 <hr>
 
-<h4 class = "text-center">Add a new comment</h3>
-
-<form action="/insert_comment" method = "post">
+<form action="/insert_comment" method = "post" class="text-center">
   <input type = "hidden" id="comment_box" value="<%= @the_post.id %>" name="query_post_id">
 
-  <label for="browser_comment"></label>
-  <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
+  <div>
+    <label for="browser_comment"></label>
+    <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
+  </div>
 
-  <button>Add comment</button>
+  <button class = "v-button">Add a new comment</button>
 </form>
-
 
 <hr>
 
 <% if @the_post.user.id == session.fetch(:user_id) %>
-  <dt>Edit post</dt>
   <div>
-  <form action="/modify_post/<%= @the_post.id %>" method="post">
+  <form action="/modify_post/<%= @the_post.id %>" method="post" class = "text-center">
     <div>
       <label for="edit_body_box"></label>
-      <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.id %>" placeholder = "Update your discussion topic..."><%= @the_post.body %></textarea>
+      <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.id %>"><%= @the_post.body %></textarea>
     </div>
     <button class = "v-button">Update post</button>
   </form>
   </div>
 
-  <div>
+  <hr>
+
+  <div class = "text-center">
     <a href="/delete_post/<%= @the_post.id %>">Delete this post</a>
   </div>
 <% else %>

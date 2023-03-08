@@ -7,53 +7,10 @@
 </div>
 
 <hr>
-
 <div>
   <div>
-    <h2>
-      Add a new comment
-    </h2>
-
-    <form action="/insert_comment" method="post">
-      <div>
-        <label for="post_id_box">
-          Post
-        </label>
-
-        <input type="text" id="post_id_box" name="query_post_id">
-      </div>
-
-      <div>
-        <label for="body_box">
-          Body
-        </label>
-
-        <textarea id="body_box" name="query_body" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="commenter_id_box">
-          Commenter
-        </label>
-
-        <input type="text" id="commenter_id_box" name="query_commenter_id">
-      </div>
-
-      <button>
-        Create comment
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
+    <table border="1" class="text-center table table-hover border">
+      <tr class = "table-info">
 
         <th>
           Post
@@ -81,12 +38,9 @@
 
       <% @list_of_comments.each do |a_comment| %>
       <tr>
-        <td>
-          <%= a_comment.id %>
-        </td>
 
         <td>
-          <%= a_comment.post_id %>
+          <%= a_comment.post.body %>
         </td>
 
         <td>
@@ -94,7 +48,7 @@
         </td>
 
         <td>
-          <%= a_comment.commenter_id %>
+          <%= a_comment.commenter.first_name %> <%= a_comment.commenter.last_name %>
         </td>
 
         <td>

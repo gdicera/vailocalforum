@@ -35,9 +35,9 @@ class CommentsController < ApplicationController
     the_id = params.fetch("path_id")
     the_comment = Comment.where({ :id => the_id }).at(0)
 
-    the_comment.post_id = params.fetch("query_post_id")
+    #the_comment.post_id = params.fetch("query_post_id")
     the_comment.body = params.fetch("query_body")
-    the_comment.commenter_id = params.fetch("query_commenter_id")
+    #the_comment.commenter_id = params.fetch("query_commenter_id")
 
     if the_comment.valid?
       the_comment.save

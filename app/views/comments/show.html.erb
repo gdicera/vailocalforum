@@ -1,101 +1,26 @@
-<div>
-  <div>
-    <h1>
-      Comment #<%= @the_comment.id %> details
-    </h1>
+<div><a href="/posts/<%= @the_comment.post.id %>">Go back</a></div>
 
-    <div>
-      <div>
-        <a href="/comments">
-          Go back
-        </a>
-      </div>
+<h3 class = "text-center"><%= @the_comment.body %></h3>
 
-      <div>
-        <a href="/delete_comment/<%= @the_comment.id %>">
-          Delete comment
-        </a>
-      </div>
-    </div>
-
-    <dl>
-      <dt>
-        Post
-      </dt>
-      <dd>
-        <%= @the_comment.post_id %>
-      </dd>
-
-      <dt>
-        Body
-      </dt>
-      <dd>
-        <%= @the_comment.body %>
-      </dd>
-
-      <dt>
-        Commenter
-      </dt>
-      <dd>
-        <%= @the_comment.commenter_id %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_comment.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_comment.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
+<h4 class = "text-center"><td>Posted by <%= @the_comment.commenter.first_name %> <%= @the_comment.commenter.last_name %></td> <td><%= time_ago_in_words(@the_comment.created_at) %> ago</td></h4>
 
 <hr>
 
 
-<div>
+<% if @the_comment.commenter.id == session.fetch(:user_id) %>
+  <dt>Edit comment</dt>
   <div>
-    <h2>
-      Edit comment
-    </h2>
-
-    <form action="/modify_comment/<%= @the_comment.id %>"  method="post" >
+    <form action="/modify_comment/<%= @the_comment.id %>"  method="post" class="text-center">
       <div>
-        <label for="post_id_box">
-          Post
-        </label>
-
-        <input type="text" id="post_id_box" name="query_post_id" value="<%= @the_comment.post_id %>">
+        <label for="comment_id_box"></label>
+        <textarea id="comment_id_box" name="query_body" value="<%= @the_comment.id %>"><%= @the_comment.body %></textarea>
       </div>
-
-      <div>
-        <label for="body_box">
-          Body
-        </label>
-
-        <textarea id="body_box" name="query_body"><%= @the_comment.body %></textarea>
-      </div>
-
-      <div>
-        <label for="commenter_id_box">
-          Commenter
-        </label>
-
-        <input type="text" id="commenter_id_box" name="query_commenter_id" value="<%= @the_comment.commenter_id %>">
-      </div>
-
-      <button>
-        Update comment
-      </button>
-    </form>
+      <button class="v-button">Update comment</button>
+   </form>
   </div>
-</div>
 
-<hr>
+  <div class="text-center">
+    <a href="/delete_comment/<%= @the_comment.id %>">Delete this comment</a>
+  </div>
+<% else %>
+<% end %>

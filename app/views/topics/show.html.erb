@@ -4,7 +4,7 @@
 
 <h3 class = "text-center"><%= @the_topic.body %> </h3>
 
-<h4 class = "text-center"><td>Asked by <%= @the_topic.user.first_name %> <%= @the_topic.user.last_name %></td> <td><%= time_ago_in_words(@the_topic.created_at) %> ago</td></h4>
+<h5 class = "text-center"><td>Asked by <%= @the_topic.user.first_name %> <%= @the_topic.user.last_name %></td> <td><%= time_ago_in_words(@the_topic.created_at) %> ago</td></h5>
 
 <hr>
 

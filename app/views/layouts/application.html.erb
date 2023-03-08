@@ -24,19 +24,34 @@
   </head>
 
   <body>
-    <ul>
-      <h1 class="text-center">VaiLocal</h1>
 
-      <% if @current_user == nil %>
-      <li><a href = "/user_sign_in" class = "btn btn-outline-primary">Sign In</a></li>
-      <li><a href = "/" class = "btn btn-outline-primary">Sign Up</a></li>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">VaiLocal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/topics/">Topics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/posts/">Posts</a>
+          </li>
 
-      <% else %>
-      <li><a href = "/topics" class = "btn btn-outline-primary">Topics</a></li>
-      <li><a href = "/user_sign_out" class = "btn btn-outline-primary">Sign Out</a></li>
+          <% if @current_user == nil %>
+          <li class="nav-item"><a class="nav-link" href="/user_sign_in">Sign In</a></li>
+          <li class="nav-item"><a class="nav-link" href="/">Sign Up</a></li>
 
-      <% end %>
-    </ul>
+          <% else %>
+          <li class="nav-item"><a class="nav-link" href="/user_sign_out/">Sign Out</a></li>
+          
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
     <% if notice.present? %>
     <div style = "border: thin green solid; color: green">

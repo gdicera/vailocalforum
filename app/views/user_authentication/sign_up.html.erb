@@ -4,6 +4,26 @@
 
 <h2>Create your account today!</h2>
 
+<style>
+
+.sign-up-button {
+  background-color: #4b006e;
+  padding: 3px;
+  color: white;
+  border-radius: 5px;
+}
+
+.sign-up-button:hover {
+  background-color: #7e3c9c;
+  box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;
+  -webkit-box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;
+  -moz-box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;
+}
+
+</style>
+
+
+
 <form action="/insert_user" method="post" class = "form-horizontal" enctype = "multipart/form-data" >
 
   <div>
@@ -37,9 +57,10 @@
     <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
   </div>
 
-  <button>
+  <span class = "sign-up-button">
     Sign up
-  </button>
+  </span>
+
 </form>
 
 <hr>

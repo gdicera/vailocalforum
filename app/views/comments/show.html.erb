@@ -8,7 +8,7 @@
 
 <div class="v-font text-center">
 <% if @the_comment.commenter.id == session.fetch(:user_id) %>
-  <div class="v-font">
+  <div>
     <form action="/modify_comment/<%= @the_comment.id %>"  method="post" class="text-center">
       <div>
         <label for="comment_id_box"></label>
@@ -20,7 +20,7 @@
 
   <hr>
 
-  <div class="v-font text-center">
+  <div>
     <a href="/delete_comment/<%= @the_comment.id %>">Delete this comment</a>
   </div>
 <% else %>

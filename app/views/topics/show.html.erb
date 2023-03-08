@@ -2,13 +2,13 @@
   <a href="/topics">Go back</a>
 </div>
 
-<h1><%= @the_topic.body %> </h1>
+<h3 class = "text-center"><%= @the_topic.body %> </h3>
 
-<h2><td>Asked by <%= @the_topic.user.first_name %> <%= @the_topic.user.last_name %></td> <td><%= time_ago_in_words(@the_topic.created_at) %> ago</td></h2>
+<h4 class = "text-center"><td>Asked by <%= @the_topic.user.first_name %> <%= @the_topic.user.last_name %></td> <td><%= time_ago_in_words(@the_topic.created_at) %> ago</td></h4>
 
 <hr>
 
-<div>
+<div class="table-info">>
   <div>
     <table border="1">
       <tr>
@@ -16,7 +16,7 @@
         <th>Post</th>
         <th>Created</th>
         <th>Updated</th>
-        <th>Show details</th>
+        <th>Details</th>
       </tr>
 
       <% @list_of_posts.each do |a_post| %>
@@ -25,7 +25,7 @@
         <td><%= a_post.body %></td>
         <td><%= time_ago_in_words(a_post.created_at) %> ago</td>
         <td><%= time_ago_in_words(a_post.updated_at) %> ago</td>
-        <td><a href="/posts/<%= a_post.id %>">Show details</a></td>
+        <td><a href="/posts/<%= a_post.id %>">See post</a></td>
       </tr>
       <% end %>
     </table>
@@ -34,15 +34,15 @@
 
 <hr>
 
-<div>
+<div class = "text-center">
   <div>
-    <h3>Add a new post</h3>
+    <h3>Create a new post</h3>
 
     <form action="/insert_post" method = "post">
       <div>
         <input type="hidden" id="topic_id_box" name="query_topic_id" value="<%= @the_topic.id %>">
 
-        <label for="post_box">Create a New Post</label>
+        <label for="post_box"></label>
         <textarea id = "post_box" name = "query_body" placeholder = "Enter a new post ..."></textarea>
       </div>
 

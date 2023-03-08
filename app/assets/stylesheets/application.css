@@ -22,7 +22,7 @@
 }
 
 .v-button:hover {
-  background-color: #7e3c9c;
+  background-color: #e2b8ffff;
   box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;
   -webkit-box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;
   -moz-box-shadow: -1px -1px 26px -18px rgba(0,0,0,0.75) inset;

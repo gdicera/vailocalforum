@@ -1,13 +1,13 @@
 <div>
-  <div><h2> What topics do you want to explore? </h2></div>
+  <div class="text-center"><h3> What topics do you want to explore? </h3></div>
 </div>
 
 <hr>
 
-<div>
+<div class="text-center">
   <div>
-    <table border="1">
-      <tr>
+    <table border="1" class="table table-striped table-hover border">
+      <tr class="table-info">
         <th>Topic</th>
         <th>Asked by</th>
         <th>View</th>
@@ -30,13 +30,13 @@
 
 <hr>
 
-<div>
+<div class="text-center">
   <div>
-    <h2>Add a new topic</h2>
+    <h4>Create a new topic</h4>
 
     <form action="/insert_topic" method="post">
       <div>
-        <label for="body_box">Create a new discussion topic</label>
+        <label for="body_box"></label>
         <textarea id="body_box" name="query_body" rows="5" placeholder = 
         "Enter a new discussion topic..."></textarea>
       </div>

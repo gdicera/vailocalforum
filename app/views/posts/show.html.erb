@@ -1,35 +1,42 @@
 <div><a href="/topics/<%= @the_post.topic.id%>">Go back</a></div>
 
-<h1><%= @the_post.body %></h1>
+<h3 class = "text-center"><%= @the_post.body %></h3>
 
-<h2><td>Posted by <%= @the_post.user.first_name %> <%= @the_post.user.last_name %></td> <td><%= time_ago_in_words(@the_post.created_at) %> ago</td> in response to the topic: <%= @the_post.topic.body %></h2>
+<h4 class = "text-center"><td>Posted by <%= @the_post.user.first_name %> <%= @the_post.user.last_name %></td> <td><%= time_ago_in_words(@the_post.created_at) %> ago</td> in response to the topic: <%= @the_post.topic.body %></h4>
 
 <hr>
 
-<h2>Comments</h2>
+<h4 class = "text-center">Comments</h4>
 
-<table border = "1">
-  <tr>
-    <th>Commenter</th>
-    <th>Comment</th>
-    <th>Posted</th>
-  </tr>
 
-  <% @the_post.comments.each do |comment| %>
-  <tr>
-    <td><%= comment.commenter.first_name %> <%= comment.commenter.last_name %></td>
-    <td><%= comment.body %></td>
-    <td><%= time_ago_in_words(comment.created_at) %> ago </td>
-  </tr>
-  <% end %>
-</table>
+<div class = "text-center">
+  <div>
+    <table border = "1">
+      <tr>
+        <th>Commenter</th>
+        <th>Comment</th>
+        <th>Posted</th>
+      </tr>
 
-<h3>Add a new comment</h3>
+      <% @the_post.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.commenter.first_name %> <%= comment.commenter.last_name %></td>
+        <td><%= comment.body %></td>
+        <td><%= time_ago_in_words(comment.created_at) %> ago </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<h4 class = "text-center">Add a new comment</h3>
 
 <form action="/insert_comment" method = "post">
   <input type = "hidden" id="comment_box" value="<%= @the_post.id %>" name="query_post_id">
 
-  <label for="browser_comment">Comment</label>
+  <label for="browser_comment"></label>
   <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
 
   <button>Add comment</button>
@@ -46,7 +53,7 @@
       <label for="edit_body_box"></label>
       <textarea id = "edit_body_box" name = "query_body" value = "<%= @the_post.id %>" placeholder = "Update your discussion topic..."><%= @the_post.body %></textarea>
     </div>
-    <button>Update post</button>
+    <button class = "v-button">Update post</button>
   </form>
   </div>
 

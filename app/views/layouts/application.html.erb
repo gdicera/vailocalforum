@@ -26,12 +26,12 @@
       <h1>VaiLocal</h1>
 
       <% if @current_user == nil %>
-      <li><a href = "/user_sign_in" class = "nav-elements">Sign In</a></li>
-      <li><a href = "/" class = "nav-elements">Sign Up</a></li>
+      <li><a href = "/user_sign_in" class = "btn btn-outline-primary">Sign In</a></li>
+      <li><a href = "/" class = "btn btn-outline-primary">Sign Up</a></li>
 
       <% else %>
-      <li><a href = "/topics">Topics</a></li>
-      <li><a href = "/user_sign_out">Sign Out</a></li>
+      <li><a href = "/topics" class = "btn btn-outline-primary">Topics</a></li>
+      <li><a href = "/user_sign_out" class = "btn btn-outline-primary">Sign Out</a></li>
 
       <% end %>
     </ul>

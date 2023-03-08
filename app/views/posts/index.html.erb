@@ -8,12 +8,11 @@
 
 <hr>
 
-
-<hr>
 <div>
   <div>
     <table border="1">
       <tr>
+        <th>Topic</th>
         <th>Post</th>
         <th>Asked by</th>
         <th>View</th>
@@ -23,6 +22,7 @@
 
       <% @list_of_posts.each do |a_post| %>
       <tr>
+        <td><%= a_post.topic.body %></td>
         <td><%= a_post.body %></td>
         <td><%= a_post.user.first_name%> <%= a_post.user.last_name%></td>
         <td><a href="/posts/<%= a_post.id %>">See post</a></td>
